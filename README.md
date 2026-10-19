@@ -1,4 +1,4 @@
-# Enterprise N-Tier Architecture Showcase (WPF & WCF)
+# NTierMvvmBackendApiOrm: Enterprise N-Tier Architecture Showcase
 
 [![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.5-blue.svg)](https://dotnet.microsoft.com/)
 [![Architecture](https://img.shields.io/badge/Architecture-N--Tier%20%2F%20MVVM-green.svg)](#architecture-overview)
