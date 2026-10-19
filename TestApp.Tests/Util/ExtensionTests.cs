@@ -59,6 +59,17 @@ namespace TestApp.Tests.Util
         }
 
         [TestMethod]
+        public void GetPropertyName_BoxedUnaryExpression_ReturnsCorrectName()
+        {
+            var sample = new SampleClass();
+            // Boxing int to object creates a UnaryExpression (Convert) around the MemberExpression
+            Expression<Func<object>> expr = () => sample.IntProp;
+
+            string name = expr.GetPropertyName();
+            Assert.AreEqual("IntProp", name);
+        }
+
+        [TestMethod]
         public void GetPropertyName_EntityObjectProperties_ReturnsExactNames()
         {
             var product = new ProductEntity();
