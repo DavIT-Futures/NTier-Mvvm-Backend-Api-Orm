@@ -127,6 +127,19 @@ Dedicated exploration of:
 4. **Run:**
    - Set `TestAppUI` as the startup project and run (F5).
 
+### Running Unit Tests
+The solution includes an automated unit test suite (`TestApp.Tests`, 60+ tests) covering:
+- **Domain Entities & Validation:** Property contracts, `IDataErrorInfo` validation rules, `[KnownType]` reflection discovery.
+- **Expression Utilities:** `GetPropertyName` lambda reflection and error handling.
+- **MVVM Infrastructure:** `RelayCommand` execution/predicates, `EntityViewModel` property change event dispatching.
+- **Custom ORM Query Generator:** Dynamic parameterized `WHERE` clause creation with AND/OR conditions.
+
+Execute tests via the .NET CLI:
+```bash
+dotnet test
+```
+
+
 ---
 
 ## Author
