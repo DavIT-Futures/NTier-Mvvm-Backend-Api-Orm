@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -12,6 +12,8 @@
   <ItemGroup>
     <PackageReference Include="Moq" Version="4.21.0" />
     <PackageReference Include="MSTest" Version="4.0.2" />
+    <PackageReference Include="CoreWCF.Primitives" Version="1.9.1" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="8.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,10 +24,6 @@
     <ProjectReference Include="..\Client\Client.csproj" />
     <ProjectReference Include="..\WCFService\WCFService.csproj" />
     <ProjectReference Include="..\TestAppUI\TestAppUI.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.ServiceModel" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,7 +56,7 @@ namespace TestApp.Entity
                     case "ProductType":
                         if (ProductType.Contains("a")) result = "Product type cannot contain 'a' letter"; break;
                     case "ReleaseDate":
-                        if (ReleaseDate == null) result = "Release date must have a value"; break;
+                        if (ReleaseDate == default) result = "Release date must have a value"; break;
                 };
                 error = result;
                 return result;

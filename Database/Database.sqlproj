@@ -93,8 +93,8 @@
     <SuppressTSqlWarnings />
   </PropertyGroup>
   <!--Import the settings-->
-  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' != '' And Exists('$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets')" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' == '' And Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')" />
   <ItemGroup>
     <Folder Include="Scripts" />
     <Folder Include="Scripts\Pre-Deployment" />
@@ -178,4 +178,7 @@
   <ItemGroup>
     <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
   </ItemGroup>
+  <Target Name="Build" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">
+    <Message Importance="High" Text="Skipping Database.sqlproj under dotnet CLI (requires Visual Studio SSDT / MSBuild)." />
+  </Target>
 </Project>
