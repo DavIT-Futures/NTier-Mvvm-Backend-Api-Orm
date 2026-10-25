@@ -1,0 +1,31 @@
+﻿name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    name: Build & Run Tests
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore TestApp.sln
+
+      - name: Build solution
+        run: dotnet build TestApp.sln -c Release --no-restore
+
+      - name: Run unit tests (101 tests)
+        run: dotnet test TestApp.Tests/TestApp.Tests.csproj -c Release --no-build --verbosity normal

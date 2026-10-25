@@ -1,5 +1,7 @@
 # NTier-Mvvm-Backend-Api-Orm: Enterprise N-Tier Architecture Showcase
 
+[![CI](https://github.com/DavIT-Futures/NTier-Mvvm-Backend-Api-Orm/actions/workflows/ci.yml/badge.svg)](https://github.com/DavIT-Futures/NTier-Mvvm-Backend-Api-Orm/actions/workflows/ci.yml)
+[![Build & Release](https://github.com/DavIT-Futures/NTier-Mvvm-Backend-Api-Orm/actions/workflows/release.yml/badge.svg)](https://github.com/DavIT-Futures/NTier-Mvvm-Backend-Api-Orm/actions/workflows/release.yml)
 [![.NET 8 (LTS)](https://img.shields.io/badge/.NET-8.0%20(LTS)-blue.svg)](https://dotnet.microsoft.com/)
 [![CoreWCF](https://img.shields.io/badge/Services-CoreWCF%201.9-purple.svg)](https://github.com/CoreWCF/CoreWCF)
 [![Architecture](https://img.shields.io/badge/Architecture-N--Tier%20%2F%20MVVM-green.svg)](#architecture-overview)

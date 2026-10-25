@@ -8,3 +8,8 @@
 *.sln.docstates
 .vs/
 *.dbmdl
+
+publish/
+artifacts/
+*.zip
+*.tar.gz
