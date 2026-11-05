@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,10 +8,16 @@ using System.Text;
 
 namespace TestApp.Entity
 {
+    /// <summary>
+    /// Base class for domain entity objects providing reflection mapping, WCF serialization known types, and validation.
+    /// </summary>
     [DataContract]
     [KnownType("GetKnownTypes")]
     public class EntityObject : IDataErrorInfo, IEntityObject
     {
+        /// <summary>
+        /// Gets or sets the primary key identifier.
+        /// </summary>
         public int Id { get; set; }
 
         [DataMember(Name = "Name")]
