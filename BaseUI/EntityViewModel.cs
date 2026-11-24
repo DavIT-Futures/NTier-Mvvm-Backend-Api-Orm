@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +10,20 @@ using System.Windows;
 
 namespace TestApp.BaseUI
 {
+    /// <summary>
+    /// Base ViewModel providing reactive change notification and entity binding support for WPF views.
+    /// </summary>
     public class EntityViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Gets or sets the associated window view instance.
+        /// </summary>
         public Window View { get; set; }
 
         private EntityObject entity;
+        /// <summary>
+        /// Gets or sets the bound entity object instance.
+        /// </summary>
         public EntityObject Entity
         {
             get { return entity; }
@@ -26,11 +35,19 @@ namespace TestApp.BaseUI
         }
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntityViewModel"/> class.
+        /// </summary>
         public EntityViewModel()
         {
             this.Entity = null;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntityViewModel"/> class bound to an entity and view.
+        /// </summary>
+        /// <param name="entity">Domain entity object instance.</param>
+        /// <param name="view">Associated WPF window view.</param>
         public EntityViewModel(EntityObject entity, Window view)
         {
             this.Entity = entity;
