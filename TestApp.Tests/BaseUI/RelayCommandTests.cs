@@ -79,5 +79,35 @@ namespace TestApp.Tests.BaseUI
             command.CanExecuteChanged += handler;
             command.CanExecuteChanged -= handler;
         }
+
+        [TestMethod]
+        public void RelayCommand_Execute_MultipleInvocations_PassesEachParameterInOrder()
+        {
+            var received = new System.Collections.Generic.List<object?>();
+            var command = new RelayCommand(param => received.Add(param), null!);
+
+            command.Execute("first");
+            command.Execute(42);
+            command.Execute(null);
+
+            Assert.AreEqual(3, received.Count);
+            Assert.AreEqual("first", received[0]);
+            Assert.AreEqual(42, received[1]);
+            Assert.IsNull(received[2]);
+        }
+
+        [TestMethod]
+        public void RelayCommand_CanExecute_DynamicTransitions_ReflectsCurrentState()
+        {
+            int threshold = 10;
+            var command = new RelayCommand(_ => { }, param => param is int value && value >= threshold);
+
+            Assert.IsTrue(command.CanExecute(10));
+            Assert.IsFalse(command.CanExecute(9));
+
+            threshold = 20;
+            Assert.IsFalse(command.CanExecute(10));
+            Assert.IsTrue(command.CanExecute(25));
+        }
     }
 }
