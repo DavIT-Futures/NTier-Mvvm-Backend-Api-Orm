@@ -109,5 +109,14 @@ namespace TestApp.Tests.Util
             Expression<Func<int>> expr = () => 42;
             Assert.Throws<ArgumentException>(() => expr.GetPropertyName());
         }
+
+        [TestMethod]
+        public void GetPropertyName_NestedPropertyExpression_ReturnsLeafPropertyName()
+        {
+            var sample = new SampleClass();
+            Expression<Func<int>> expr = () => sample.StringProp.Length;
+
+            Assert.AreEqual("Length", expr.GetPropertyName());
+        }
     }
 }
