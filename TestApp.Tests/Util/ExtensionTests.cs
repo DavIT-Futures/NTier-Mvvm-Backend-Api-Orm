@@ -118,5 +118,13 @@ namespace TestApp.Tests.Util
 
             Assert.AreEqual("Length", expr.GetPropertyName());
         }
+
+        [TestMethod]
+        public void GetPropertyName_StaticPropertyExpression_ReturnsPropertyName()
+        {
+            Expression<Func<DateTime>> expr = () => DateTime.UtcNow;
+
+            Assert.AreEqual("UtcNow", expr.GetPropertyName());
+        }
     }
 }
