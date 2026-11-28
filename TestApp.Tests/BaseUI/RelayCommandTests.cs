@@ -109,5 +109,15 @@ namespace TestApp.Tests.BaseUI
             Assert.IsFalse(command.CanExecute(10));
             Assert.IsTrue(command.CanExecute(25));
         }
+
+        [TestMethod]
+        public void RelayCommand_CanExecute_WithNullExecuteAction_StillEvaluatesPredicate()
+        {
+            var command = new RelayCommand(null!, param => param is string text && text.Length > 0);
+
+            Assert.IsTrue(command.CanExecute("valid"));
+            Assert.IsFalse(command.CanExecute(string.Empty));
+            Assert.IsFalse(command.CanExecute(null));
+        }
     }
 }
